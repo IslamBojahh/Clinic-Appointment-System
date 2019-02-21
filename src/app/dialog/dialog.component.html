@@ -1,0 +1,50 @@
+
+  
+<h2 mat-dialog-title class="header">Book At:{{description}}</h2>
+   
+<form class="Formbody" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+          <input type="text" placeholder="Your Full Name"  
+          class="example-full-width" formControlName="name"  [ngClass]="{'example-full-width-error': submitted && f.name.errors}"
+          [(ngModel)]="name"
+          >
+          <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+              <div *ngIf="f.name.errors.required">Name is required</div>
+          </div>
+          <input type="text" placeholder="Your Email Address"  name='email' 
+          class="example-full-width" formControlName="email"  [ngClass]="{'example-full-width-error': submitted && f.email.errors}"
+          [(ngModel)]="email"
+          >
+          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+              <div *ngIf="f.email.errors.required">Email is required</div>
+              <div *ngIf="f.email.errors.email">Enter valid Email</div>
+          </div>
+          <input type="text" placeholder="Your Phone number" name='phone'
+          class="example-full-width" formControlName="phone"  [ngClass]="{'example-full-width-error': submitted && f.phone.errors}"
+          [(ngModel)]="phone"
+          >  
+          <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+              <div *ngIf="f.phone.errors.required">Phone number is required</div>
+              <div *ngIf="f.phone.errors.minlength">Phone number requied atleast 8 digits</div>
+              <div *ngIf="f.phone.errors.maxlength">Phone number requied atleast 12 digits</div>
+              <div *ngIf="f.phone.errors.pattern">Only numbers are allowed</div>
+          </div>
+
+          <input type="text" placeholder="Select Date" name='date' 
+          onfocus="(this.type='date')"
+          class="example-full-width"
+          formControlName="date" [ngClass]="{'example-full-width-error': submitted && f.date.errors}"
+          [(ngModel)]="date"
+          >
+          <div *ngIf="submitted && f.date.errors" class="invalid-feedback">
+              <div *ngIf="f.date.errors.required">Date is required</div>
+          </div>
+    
+          <button class="ButtonStyle" [disabled]="loading" >
+            Booking
+          </button>
+      
+</form>
+
+
+

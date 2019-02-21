@@ -1,0 +1,23 @@
+<div class="mainDiv">
+
+<div class="titleDiv">
+<h1 class="tilteClinic" >CLINIC</h1>
+<h1 >APP</h1>
+</div>
+
+
+<div class="clinicsBody">
+
+  <div class="clinicCard" *ngFor="let p of clinics; let i=index;">
+      <img class="CardImage" src={{p.image}}>
+      <div class="CardBottom">
+          
+          <span class="ClinicName"> {{p.name}}</span>
+          <button class="ClinicBook" (click)="openDialog(p.name , p.id);"> Book </button>
+      </div>
+  </div>
+
+</div>
+
+</div>
+
